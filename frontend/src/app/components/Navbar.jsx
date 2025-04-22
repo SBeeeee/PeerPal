@@ -5,7 +5,7 @@ function Navbar() {
     <div className="flex justify-center">
     <div className="flex bg-blue-600 p-2 px-4 rounded-2xl mb-2 justify-between  w-[90vw]">
     <IoHome />
-    <IoHome /><IoHome /><IoHome /><IoHome />
+    <IoHome /><IoHome /><IoHome />
     </div></div>
   )
 }
