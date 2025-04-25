@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import UpperNav from "./components/UpperNav";
 import "./globals.css";
 
 export default function Home() {
@@ -6,9 +7,9 @@ export default function Home() {
    
       
   <div>
-      
-     
+     <UpperNav/>
       <Navbar/>
+      
   </div>
   );
 }
