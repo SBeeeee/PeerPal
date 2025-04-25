@@ -1,12 +1,18 @@
 import React from 'react'
-import { IoHome } from "react-icons/io5";
+import { Home, Search, PlusCircle, MessageSquare, User } from "lucide-react"
+
 function Navbar() {
   return (
-    <div className="flex justify-center">
-    <div className="flex bg-blue-600 p-2 px-4 rounded-2xl mb-2 justify-between  w-[90vw]">
-    <IoHome />
-    <IoHome /><IoHome /><IoHome />
-    </div></div>
+    
+    <div className="flex justify-around items-center h-12 fixed bottom-0 mb-2 border-2 text-gray-300  w-[90%] rounded-3xl left-1/2 -translate-x-1/2 border-amber-50">
+      
+      <Home size={30}/>
+      <Search size={30}/>
+      <PlusCircle size={30}/>
+      <MessageSquare size={30}/>
+      <User size={30}/>
+      
+   </div>
   )
 }
 
