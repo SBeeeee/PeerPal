@@ -11,7 +11,6 @@ export default function Home() {
       
   <div>
      <UpperNav/>
-      <Navbar/>
       <Hero/>
       <Working/>
       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
