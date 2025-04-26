@@ -14,6 +14,7 @@ export default function Home() {
       <Navbar/>
       <Hero/>
       <Working/>
+      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
   </div>
   );
 }
