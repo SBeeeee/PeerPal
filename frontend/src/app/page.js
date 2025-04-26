@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import UpperNav from "./components/UpperNav";
 import Hero from "./components/Hero";
 import "./globals.css";
+import Working from "./components/Working";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
      <UpperNav/>
       <Navbar/>
       <Hero/>
+      <Working/>
   </div>
   );
 }
