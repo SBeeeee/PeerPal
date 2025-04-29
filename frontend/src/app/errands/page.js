@@ -5,7 +5,7 @@ import Cards from './components/Cards'
 function page() {
   return (
     <div className="ml-6">
-      <Heading/>
+    <Heading/>
     <Cards/>
     
     </div>
