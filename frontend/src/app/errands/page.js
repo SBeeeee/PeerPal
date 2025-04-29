@@ -7,7 +7,7 @@ function page() {
     <div className="ml-6">
       <Heading/>
     <Cards/>
-    <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
+    
     </div>
   )
 }
