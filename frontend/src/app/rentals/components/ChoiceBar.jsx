@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import Cards from './Cards'
+import RequestedCards from './RequestedCards'
 
 function ChoiceBar() {
   const [present, setPresent] = useState("available")
@@ -24,7 +25,7 @@ function ChoiceBar() {
       {present === "available" ? (
         <Cards />
       ) : (
-        <div className="text-center text-gray-500 mt-4 text-lg">Coming Soon</div>
+        <RequestedCards/>
       )}
     </div>
   )
