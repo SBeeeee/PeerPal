@@ -10,7 +10,7 @@ export default function Home() {
    
       
   <div>
-     <UpperNav/>
+   
       <Hero/>
       <Working/>
       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>

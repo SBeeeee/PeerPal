@@ -1,6 +1,7 @@
 
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import UpperNav from "./components/UpperNav";
 
 
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html className="bg-zinc-900" lang="en">
       <body >
+        <UpperNav/>
       <Navbar/>
         {children}
       </body>

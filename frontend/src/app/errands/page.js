@@ -1,12 +1,13 @@
 import React from 'react'
-import { errands } from './components/data'
-
+import Heading from './components/Heading'
+import Cards from './components/Cards'
 
 function page() {
   return (
-    <div className="bg-zinc-700">
-      {errands[0].title}
-  
+    <div className="ml-6">
+      <Heading/>
+    <Cards/>
+    <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
     </div>
   )
 }
