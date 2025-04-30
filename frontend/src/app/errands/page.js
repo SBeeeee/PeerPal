@@ -1,12 +1,12 @@
 import React from 'react'
 import Heading from './components/Heading'
-import Cards from './components/Cards'
+import TaskBar from './components/TaskBar'
 
 function page() {
   return (
     <div className="ml-6">
     <Heading/>
-    <Cards/>
+<TaskBar/>
     
     </div>
   )
