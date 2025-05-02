@@ -1,0 +1,22 @@
+# Node.js
+node_modules/
+
+# Logs
+*.log
+*.log.*
+
+# Environment files
+.env
+
+# Build directories (if any)
+dist/
+build/
+
+# Optional: if you're using Docker
+.docker/
+
+# Optional: if you're using VS Code
+.vscode/
+
+# Optional: if you're using macOS
+.DS_Store
