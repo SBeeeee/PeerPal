@@ -28,3 +28,30 @@ export const register=async (req, res) => {
     res.status(500).json({ message: error.message });
 }
 }
+
+export const login=async(req,res)=>{
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email })
+        .select('+password'); //This overrides the select: false for just this query and includes the password in the result.
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid email or password' });
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({ message: 'Invalid email or password' });
+        }
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        delete user._doc.password;
+
+        res.cookie('token', token);
+
+        res.send({ token, user });
+    } catch (error) {
+
+        res.status(500).json({ message: error.message });
+    }
+
+
+}
