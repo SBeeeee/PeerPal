@@ -30,3 +30,22 @@ export const createtask = async (req, res) => {
         });
     }
 }
+
+export const gettasks=async(req,res)=>{
+    try {
+        const tasks = await Tasks.find().populate( {  path: 'postedby',select: 'name -_id'} )
+    
+    res.status(200).json({
+        success:true,
+        message:'View All tasks',
+        tasks,
+
+    })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error creating task',
+            error: error.message,
+        });
+    }
+}
