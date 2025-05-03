@@ -67,3 +67,11 @@ export const logout=async(req,res)=>{
         res.status(500).json({ message: error.message });
     }
 }
+
+export const profile=async(req,res)=>{
+    try {
+        res.send(req.user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
