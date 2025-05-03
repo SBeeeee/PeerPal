@@ -4,6 +4,7 @@ import bodyParser from "body-parser"
 import  cookieParser from "cookie-parser";
 import connectDB from "./db/database.js";
 import Userrouter from "./routes/user.js"
+import taskrouter from "./routes/tasks.js";
 
 const app=express();
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 const PORT=process.env.PORT || 3000;
 app.use("/",Userrouter)
+app.use("/task",taskrouter)
 
 app.listen(PORT,()=>{
     console.log(`Server listen at port ${PORT}`);
