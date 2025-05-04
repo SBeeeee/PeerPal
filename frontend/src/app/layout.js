@@ -1,10 +1,7 @@
-
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import UpperNav from "./components/UpperNav";
 import { AuthProvider } from "./context/UserContext";
-
-
 
 export const metadata = {
   title: "HelpBuddy",

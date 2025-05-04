@@ -1,9 +1,9 @@
 import axios from 'axios';
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 import { Clock, Filter, MapPin, Package, Search, ShoppingCart, Truck, Home } from "lucide-react"
+import api from '@/app/lib/api';
 
-
-export const fetchdata = async (setLoading) => {
+export const fetchdata = async () => {
   try {
     const res = await axios.get(`${BACKEND_URL}/task/alltasks`);
     const data = await res.data;
@@ -14,6 +14,17 @@ export const fetchdata = async (setLoading) => {
   } 
 };
 
+  export const createTask =async(task)=>{
+    try{
+      const res=await api.post(`${BACKEND_URL}/task/create`,task,{
+       
+      });
+      return res.data;
+    }catch(error){
+      console.error("Error creating task:", error.message);
+      return { error: "Failed to create task" };
+    }
+  }
 
 
 
