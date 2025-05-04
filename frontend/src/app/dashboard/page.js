@@ -1,9 +1,10 @@
 import React from 'react'
+import Dashboard from './Dashboard'
 
 function page() {
   return (
     <div>
-      yet to be made sir 
+    <Dashboard/>
       
     </div>
   )

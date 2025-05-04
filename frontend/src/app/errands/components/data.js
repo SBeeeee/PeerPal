@@ -1,4 +1,35 @@
+import axios from 'axios';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 import { Clock, Filter, MapPin, Package, Search, ShoppingCart, Truck, Home } from "lucide-react"
+
+
+export const fetchdata = async (setLoading) => {
+  try {
+    const res = await axios.get(`${BACKEND_URL}/task/alltasks`);
+    const data = await res.data;
+    return data; // Return the fetched data
+  } catch (error) {
+    console.error(error);
+    return {}; // Return empty object in case of error to prevent breaking
+  } 
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const errands = [
     {
