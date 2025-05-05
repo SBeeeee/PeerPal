@@ -26,6 +26,15 @@ export const fetchdata = async () => {
     }
   }
 
+export const fetchmytasks =async()=>{
+  try {
+    const res=await api.get(`${BACKEND_URL}/task/alltasks`);
+    const data =await res.data;
+    return data;
+  } catch (error) {
+    
+  }
+}
 
 
 
@@ -41,89 +50,6 @@ export const fetchdata = async () => {
 
 
 
-
-export const errands = [
-    {
-      id: 1,
-      title: "Grocery Shopping",
-      description: "Need someone to pick up groceries from Whole Foods. List provided. Approximately 15 items.",
-      price: 25,
-      distance: "2.3 miles",
-      category: "Shopping",
-      icon: ShoppingCart,
-      postedAt: "2 hours ago",
-    },
-    {
-      id: 2,
-      title: "Package Pickup",
-      description: "Need someone to pick up a package from the post office and deliver it to my home.",
-      price: 15,
-      distance: "1.5 miles",
-      category: "Delivery",
-      icon: Package,
-      postedAt: "3 hours ago",
-    },
-    {
-      id: 3,
-      title: "Furniture Assembly",
-      description: "Need help assembling a bookshelf from IKEA. All tools and parts provided.",
-      price: 40,
-      distance: "3.2 miles",
-      category: "Home",
-      icon: Home,
-      postedAt: "5 hours ago",
-    },
-    {
-      id: 4,
-      title: "Airport Pickup",
-      description: "Need a ride from JFK airport to downtown. One person with two suitcases.",
-      price: 50,
-      distance: "12.7 miles",
-      category: "Transport",
-      icon: Truck,
-      postedAt: "1 day ago",
-    },
-    {
-      id: 5,
-      title: "Dog Walking",
-      description: "Need someone to walk my dog for 30 minutes. Friendly golden retriever.",
-      price: 15,
-      distance: "0.8 miles",
-      category: "Pets",
-      icon: Home,
-      postedAt: "4 hours ago",
-    },
-    {
-      id: 6,
-      title: "Dry Cleaning Pickup",
-      description: "Need someone to pick up my dry cleaning and deliver it to my apartment.",
-      price: 12,
-      distance: "1.2 miles",
-      category: "Delivery",
-      icon: Package,
-      postedAt: "6 hours ago",
-    },
-    {
-      id: 7,
-      title: "Grocery Delivery",
-      description: "Need groceries delivered from Trader Joe's. List will be provided.",
-      price: 20,
-      distance: "2.5 miles",
-      category: "Shopping",
-      icon: ShoppingCart,
-      postedAt: "3 hours ago",
-    },
-    {
-      id: 8,
-      title: "Moving Help",
-      description: "Need help moving a few furniture items from one apartment to another in the same building.",
-      price: 45,
-      distance: "1.8 miles",
-      category: "Home",
-      icon: Truck,
-      postedAt: "1 day ago",
-    },
-  ]
 
 export const myTasks = [
   {

@@ -33,7 +33,11 @@ export const createtask = async (req, res) => {
 
 export const gettasks=async(req,res)=>{
     try {
-        const tasks = await Tasks.find().populate( {  path: 'postedby',select: 'name -_id'} )
+        const tasks = await Tasks.find().populate( {  path: 'postedby',select: 'name -_id'} )// For each task, it looks at the postedby field (which should contain a user _id reference) and replaces it with the actual user document — but only includes: name field ✅ excludes _id ❌
+        
+        
+
+
     
     res.status(200).json({
         success:true,
@@ -53,7 +57,7 @@ export const gettasks=async(req,res)=>{
 export const mytasks=async(req,res)=>{
     try {
         const userId=req.user._id;
-        const tasks=await Tasks.findById(userId);
+        const tasks = await Tasks.find({ postedby: userId });
         res.status(200).json({
             success:true,
             message:'View All tasks',
