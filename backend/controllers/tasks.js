@@ -49,3 +49,22 @@ export const gettasks=async(req,res)=>{
         });
     }
 }
+
+export const mytasks=async(req,res)=>{
+    try {
+        const userId=req.user._id;
+        const tasks=await Tasks.findById(userId);
+        res.status(200).json({
+            success:true,
+            message:'View All tasks',
+            tasks,
+    
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error creating task',
+            error: error.message,
+        });
+    }
+}
