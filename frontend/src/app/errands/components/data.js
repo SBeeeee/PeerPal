@@ -28,11 +28,12 @@ export const fetchdata = async () => {
 
 export const fetchmytasks =async()=>{
   try {
-    const res=await api.get(`${BACKEND_URL}/task/alltasks`);
+    const res=await api.get(`${BACKEND_URL}/task/mytasks`);
     const data =await res.data;
     return data;
   } catch (error) {
-    
+    console.error("Error fetching your tasks:", error.message);
+      return { error: "Failed to create task" };
   }
 }
 
