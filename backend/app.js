@@ -5,6 +5,7 @@ import  cookieParser from "cookie-parser";
 import connectDB from "./db/database.js";
 import Userrouter from "./routes/user.js"
 import taskrouter from "./routes/tasks.js";
+import rentalrouter from "./routes/rentals.js";
 import cors from  "cors";
 
 const app=express();
@@ -33,7 +34,7 @@ app.use(cookieParser());
 const PORT=process.env.PORT || 3000;
 app.use("/",Userrouter)
 app.use("/task",taskrouter)
-
+app.use("/rentals",rentalrouter);
 
 
 app.listen(PORT,()=>{
