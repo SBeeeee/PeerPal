@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import { MapPin, ShoppingCart, Package, Home, Truck, Clock, Filter, Search ,Plus} from 'lucide-react';
 import { useAuth } from '@/app/context/UserContext';
-import { fetchdata } from './data';
-
+import { fetchdata,createRental } from './data';
+import TaskModal from './TaskModal';
 export default function Cards() {
 
   const [rentals,setRentals]=useState([])
+  const [showModal,setShowModal]=useState(false);
   const { user, logout, loading,setLoading } = useAuth();
   const getData=async()=>{
     setLoading(true)
@@ -31,7 +32,20 @@ export default function Cards() {
       default: return Clock;
     }
   };
-
+  const posttask =async(formData)=>{
+    const requestBody={
+      title:formData.title,
+      description: formData.description,
+      price: formData.price,
+      category: formData.category,
+      location:formData.location
+    }
+    const data=await createRental(requestBody);
+    getData();
+    setShowModal(false); 
+    
+   
+}
   
 
   if(loading){
@@ -41,6 +55,8 @@ export default function Cards() {
   }
 
   return (
+    <>
+    <button className="bg-green-400 rounded-lg px-2 py-2 flex hover:bg-green-500 text-gray-900 my-2" onClick={() => setShowModal(true)}><Plus/> Post New Rental</button>
     <div className="flex flex-wrap gap-4 justify-center">
     {rentals.map((task) => {
       const Icon = getIconByCategory(task.category);
@@ -62,6 +78,13 @@ export default function Cards() {
         </div>
       );
     })}
+     {showModal && (
+        <TaskModal 
+          onClose={() => setShowModal(false)} 
+          onSubmit={posttask}
+        />
+      )}
   </div>
-  )
+  </>
+  );
 }
