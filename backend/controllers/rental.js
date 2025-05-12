@@ -66,3 +66,50 @@ export const myrentals=async(req,res)=>{
         });
     }
 }
+
+export const createrequest=async(req,res)=>{
+    try{
+    const postedby=req.user._id;
+    const {title,description,price,category,location}=req.body;
+    const newRental=new Rentals({
+        title,
+        description,
+        price,
+        category,
+        location,
+        postedby,
+        status:'requested'
+    })
+
+    await newRental.save();
+    res.status(201).json({
+        success: true,
+        message: 'Rental created successfully',
+        Rental: newRental,
+    });
+    }
+    catch(error){
+        res.status(500).json({
+            success: false,
+            message: 'Error creating requested task',
+            error: error.message,
+        });
+    }
+
+}
+export const requested=async(req,res)=>{
+    try {
+        const rentals=await Tasks.find({status:requested})
+        res.status(200).json({
+            success:true,
+            message:'View requested tasks',
+            rentals,
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Error getting requested tasks',
+            error: error.message,
+        });
+    }
+}

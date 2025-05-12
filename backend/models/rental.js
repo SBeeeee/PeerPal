@@ -26,7 +26,7 @@ const rentalsSchema=new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['not accepted', 'in progress', 'completed'],
+        enum: ['not accepted', 'in progress', 'requested','completed'],
         default: 'not accepted'
     },
     location:{
