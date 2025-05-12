@@ -43,8 +43,6 @@ export default function Cards() {
     const data=await createRental(requestBody);
     getData();
     setShowModal(false); 
-    
-   
 }
   
 
