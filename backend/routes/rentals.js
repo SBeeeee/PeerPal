@@ -8,6 +8,6 @@ router.post("/create",auth,createrental);
 router.get("/allrentals",getRentals);
 router.get("/myrentals",auth,myrentals);
 router.get("/requested",requested);
-router.post("/postrequest",createrequest);
+router.post("/postrequest",auth,createrequest);
 
 export default router;
