@@ -99,7 +99,7 @@ export const createrequest=async(req,res)=>{
 }
 export const requested=async(req,res)=>{
     try {
-        const rentals=await Rentals.find({status:requested})
+        const rentals=await Rentals.find({status:'requested'})
         res.status(200).json({
             success:true,
             message:'View requested tasks',
