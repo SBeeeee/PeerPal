@@ -51,7 +51,7 @@ export const getRentals=async(req,res)=>{
 export const myrentals=async(req,res)=>{
     try {
         const userId=req.user._id;
-        const rentals = await Tasks.find({ postedby: userId });
+        const rentals = await Rentals.find({ postedby: userId });
         res.status(200).json({
             success:true,
             message:'View All tasks',
@@ -99,7 +99,7 @@ export const createrequest=async(req,res)=>{
 }
 export const requested=async(req,res)=>{
     try {
-        const rentals=await Tasks.find({status:requested})
+        const rentals=await Rentals.find({status:requested})
         res.status(200).json({
             success:true,
             message:'View requested tasks',
