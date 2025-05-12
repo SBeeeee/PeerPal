@@ -1,12 +1,14 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { fetchRequestedRentals } from "./data"
+import { fetchRequestedRentals,createRequestRental } from "./data"
 import { MapPin, ShoppingCart, Package, Home, Truck, Clock, Filter, Search ,Plus} from 'lucide-react';
 import { useAuth } from '@/app/context/UserContext';
+import RequestModal from './RequestModal';
 
 export default function RequestedCards() {
   const { user, logout, loading,setLoading } = useAuth();
   const [rentals,setRentals]=useState([])
+  const [showModal,setShowModal]=useState(false);
   const getData=async()=>{
     setLoading(true)
     const data = await fetchRequestedRentals();
@@ -30,6 +32,19 @@ export default function RequestedCards() {
       default: return Clock;
     }
   };
+const posttask=async(formData)=>{
+    const requestBody={
+      title:formData.title,
+      description: formData.description,
+      price: formData.price,
+      category: formData.category,
+      location:formData.location
+    }
+    const data=await createRequestRental(requestBody);
+    getData();
+    setShowModal(false); 
+  }
+
 
   if(loading){
     return(
@@ -39,6 +54,8 @@ export default function RequestedCards() {
 
 
   return (
+    <>
+    <button className="bg-green-400 rounded-lg px-2 py-2 flex hover:bg-green-500 text-gray-900 my-2" onClick={() => setShowModal(true)}><Plus/> Request New Rental</button>
     <div className="flex flex-wrap gap-4 justify-center">
     {rentals.map((task) => {
       const Icon = getIconByCategory(task.category);
@@ -60,6 +77,13 @@ export default function RequestedCards() {
         </div>
       );
     })}
+    {showModal && (
+        <RequestModal 
+          onClose={() => setShowModal(false)} 
+          onSubmit={posttask}
+        />
+      )}
   </div>
+  </>
   )
 }
