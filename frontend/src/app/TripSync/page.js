@@ -1,10 +1,12 @@
 import React from 'react'
+import Heading from './components/Heading'
+import TaskBar from './components/TaskBar'
 
 function page() {
   return (
     <div>
-      will be made soon 
-      
+      <Heading/>
+      <TaskBar/>
     </div>
   )
 }
