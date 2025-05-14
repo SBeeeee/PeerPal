@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import AllRides from './AllRides'
 
 function TaskBar() {
     const [present, setPresent] = useState("All Rides")
@@ -27,7 +28,7 @@ function TaskBar() {
         </div>
       </div>
       {present === "All Rides" && 
-          <div className="text-white text-center">AllRidesComponent goes here</div>
+          <div className="text-white text-center"><AllRides/></div>
         }
         {present === "Today" && 
           <div className="text-white text-center">TodayComponent goes here</div>
