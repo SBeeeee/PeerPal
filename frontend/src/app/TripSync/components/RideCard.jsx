@@ -2,11 +2,11 @@ import React from 'react';
 
 function RideCard({ ride }) {
   return (
-    <div className="bg-[#1a1a1a] rounded-2xl p-5 text-white space-y-4 w-full shadow-md border border-[#2b2b2b]">
+    <div className="bg-[#1a1a1a] rounded-2xl p-2 text-white space-y-4 w-full shadow-md border border-[#2b2b2b]">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="text-xl font-bold leading-tight">
+          <h2 className="text-xl font-bold">
             {ride.from} → {ride.to}
           </h2>
           <p className="text-sm text-gray-400 mt-1">Posted {ride.postedAgo}</p>
