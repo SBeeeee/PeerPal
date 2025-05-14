@@ -2,7 +2,7 @@ import React from 'react'
 import { fetchmytasks } from './dataapi';
 import { useState,useEffect } from 'react';
 import { useAuth } from '@/app/context/UserContext';
-import ProtectedRoute from '@/app/components/ProtectedRoute';
+
 import { MapPin, ShoppingCart, Package, Home, Truck, Clock, Filter, Search ,Plus} from 'lucide-react';
 
 function MyCards() {
@@ -42,7 +42,7 @@ function MyCards() {
 
   return (
     <>
-<ProtectedRoute>
+
     <div className="flex flex-wrap gap-4 justify-center">
       {tasks.map((task) => {
         const Icon = getIconByCategory(task.category);
@@ -66,7 +66,7 @@ function MyCards() {
       })}
      
     </div>
-    </ProtectedRoute>
+  
     </>
   );
 }
