@@ -16,9 +16,7 @@ export const fetchdata = async () => {
 
   export const createTask =async(task)=>{
     try{
-      const res=await api.post(`${BACKEND_URL}/task/create`,task,{
-       
-      });
+      const res=await api.post(`${BACKEND_URL}/task/create`,task);
       return res.data;
     }catch(error){
       console.error("Error creating task:", error.message);

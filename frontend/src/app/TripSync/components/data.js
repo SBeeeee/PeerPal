@@ -1,5 +1,28 @@
 // data.js
+import api from '@/app/lib/api';
+import axios from 'axios';
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
+export const fetchrides =async()=>{
+  try {
+    const res =await axios.get(`${BACKEND_URL}/rides/getallrides`);
+    const data = await res.data;
+    console.log("hi",data)
+    return data;
+  } catch (error) {
+    console.error(error);
+    return {};
+  }
+}
+
+export const createRide =async(ride)=>{
+  try {
+    const res=await api.post(`${BACKEND_URL}/task/create`,ride);
+  } catch (error) {
+    console.error("Error creating ride",error.message);
+    return{error:"Failed To create ride"}
+  }
+}
 export const rides = [
     {
       id: 1,

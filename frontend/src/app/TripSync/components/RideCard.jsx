@@ -1,4 +1,6 @@
 import React from 'react';
+import { formatDistanceToNow, format } from 'date-fns';
+
 
 function RideCard({ ride }) {
   return (
@@ -7,42 +9,42 @@ function RideCard({ ride }) {
       <div className="flex justify-between items-start">
         <div>
           <h2 className="text-xl font-bold">
-            {ride.from} → {ride.to}
+            {ride.fromdestination} → {ride.destination}
           </h2>
-          <p className="text-sm text-gray-400 mt-1">Posted {ride.postedAgo}</p>
+          <p className="text-sm text-gray-400 mt-1">Posted {formatDistanceToNow(new Date(ride.createdAt), { addSuffix: true })}</p>
         </div>
 
         <div className="flex items-center gap-2 text-sm bg-white text-black px-3 py-1 rounded-full">
-          {ride.rideType === 'Cab' ? '🚖 Cab' : '🛺 Auto'}
+          {ride.ride === 'Cab' ? '🚖 Cab' : '🛺 Auto'}
         </div>
       </div>
 
       {/* Ride Details */}
       <div className="flex flex-wrap gap-4 text-sm text-gray-300">
         <div className="flex items-center gap-2">
-          📅 <span>{ride.day}</span>
+          📅 <span>{format(new Date(ride.travelDate), 'dd MMM yyyy')}</span>
         </div>
         <div className="flex items-center gap-2">
-          ⏰ <span>{ride.time}</span>
+          ⏰ <span>{format(new Date(ride.travelDate), 'h:mm a')}</span>
         </div>
         <div className="bg-gray-700 text-white px-3 py-1 rounded-full text-xs">
-          {ride.seatsAvailable} seats available
+          {ride.seats} seats available
         </div>
       </div>
 
       {/* Description */}
-      {ride.description && (
+      {ride.Details && (
         <p className="text-sm text-gray-300 leading-relaxed">
-          {ride.description}
+        {ride.Details}
         </p>
       )}
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-2">
-        <span className="font-semibold text-sm">{ride.user.name}</span>
+        <span className="font-semibold text-sm">{ride.postedby.name}</span>
         <button
           className="bg-green-600 hover:bg-green-700 transition-all duration-200 text-white px-4 py-1.5 rounded-full text-sm"
-          aria-label={`Join ride with ${ride.user.name}`}
+          
         >
           Join Ride
         </button>
