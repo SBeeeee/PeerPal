@@ -6,6 +6,7 @@ import connectDB from "./db/database.js";
 import Userrouter from "./routes/user.js"
 import taskrouter from "./routes/tasks.js";
 import rentalrouter from "./routes/rentals.js";
+import riderouter from "./routes/Rideshare.js";
 import cors from  "cors";
 
 const app=express();
@@ -35,6 +36,7 @@ const PORT=process.env.PORT || 3000;
 app.use("/",Userrouter)
 app.use("/task",taskrouter)
 app.use("/rentals",rentalrouter);
+app.use("/rides",riderouter)
 
 
 app.listen(PORT,()=>{
