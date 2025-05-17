@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import { useAuth } from '@/app/context/UserContext';
 
 import { MapPin, ShoppingCart, Package, Home, Truck, Clock, Filter, Search ,Plus} from 'lucide-react';
+import ProtectedRoute from '@/app/components/ProtectedRoute';
 
 function MyCards() {
   const [tasks, setTasks] = useState([]);
@@ -42,7 +43,7 @@ function MyCards() {
 
   return (
     <>
-
+<ProtectedRoute>
     <div className="flex flex-wrap gap-4 justify-center">
       {tasks.map((task) => {
         const Icon = getIconByCategory(task.category);
@@ -66,7 +67,7 @@ function MyCards() {
       })}
      
     </div>
-  
+    </ProtectedRoute>
     </>
   );
 }

@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import Cards from './Cards'
 import MyCards from './MyCards'
-import ProtectedRoute from '@/app/components/ProtectedRoute'
 
 function TaskBar() {
   const [present, setPresent] = useState("all tasks")
@@ -26,7 +25,7 @@ function TaskBar() {
       {present === "all tasks" ? (
         <Cards/>
       ) : (
-       <div><ProtectedRoute><MyCards/></ProtectedRoute></div> 
+       <div><MyCards/></div> 
       )}
     </div>
   )
