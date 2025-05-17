@@ -10,7 +10,10 @@ import { createRide } from './data'
 function TaskBar() {
     const [present, setPresent] = useState("All Rides")
     const [showModal,setShowModal]=useState(false);
-
+    const createride=async (formData)=>{
+        const data=await createRide(formData);
+        setShowModal(false);
+    }
   return (
     <div>
       <button className="bg-green-400 rounded-lg px-2 py-2 flex hover:bg-green-500 text-gray-900 my-2" onClick={() => setShowModal(true)}><Plus/> Post new Ride</button>
@@ -45,7 +48,7 @@ function TaskBar() {
         }
 
         {showModal && 
-        <RideModal onClose={() => setShowModal(false)} onSubmit={createRide}/>
+        <RideModal onClose={() => setShowModal(false)} onSubmit={createride}/>
         }
     </div>
   )
