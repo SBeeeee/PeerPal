@@ -13,9 +13,7 @@ function AllRides() {
   const getData =async()=>{
       setLoading(true);
       const data =await fetchrides();
-        console.log(rides)
       setRides(data.Rides);
-      console.log("heello",rides);
       setLoading(false)
   }
 
@@ -30,7 +28,7 @@ function AllRides() {
     )
   }
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
+    <div className="max-w-4xl mx-auto px-4 py-6 space-y-6"> 
       {rides.map((ride) => (
         <RideCard key={ride._id} ride={ride} />
       ))}
